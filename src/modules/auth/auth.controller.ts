@@ -1,19 +1,20 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
+// biome-ignore lint/style/useImportType: <explanation>
 import { UpdateAuthDto } from './dto/update-auth.dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @Post()
-  create(@Body() createAuthDto: CreateAuthDto) {
+  createUser(@Body() createAuthDto: CreateAuthDto) {
     return this.authService.create(createAuthDto);
   }
 
   @Get()
-  findAll() {
+  Login() {
     return this.authService.findAll();
   }
 
